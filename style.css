@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+a, button, img, input {
+  display: block;
+}
+
+button, input {
+  outline: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product {
+  max-width: 150px;
+  width: 100%;
+  font-family: "Roboto Condensed";
+  text-align: center;
+}
+.product__img {
+  width: 150px;
+  height: auto;
+  margin: 0 auto;
+}
+.product__name {
+  margin: 10px auto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 15px;
+  color: black;
+}
+.product__button {
+  margin: 10px auto;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 20px;
+  background: red;
+  color: white;
+  text-transform: uppercase;
+  transition: 0.3s background-color ease-in-out;
+}
+.product__button:hover {
+  background: #cc0000;
+}
+
+.form {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+.form-active {
+  display: flex;
+}
+.form__body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px;
+  background: #ffffff;
+}
+.form .input {
+  margin: 10px 0;
+  border: 1px solid #cccccc;
+  padding: 10px;
+}
+.form__closeBtn {
+  margin: 10px 0 40px;
+  background: #ffffff;
+  text-align: right;
+  font-size: 24px;
+  font-weight: 600;
+}
+.form__productName {
+  max-width: 180px;
+  margin: 0 auto;
+  font-family: "Roboto Condensed";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
