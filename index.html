@@ -46,14 +46,14 @@
 </ul>
 
 <div class="form">
-    <form action="" class="form__body">
+    <form id="form" class="form__body">
         <div class="form__close"><i class="fas fa-times form__closeBtn"></i></div>
-        <input type="text" class="input form__name" placeholder="Имя">
-        <input type="tel" class="input form__phone" placeholder="Номер телефона">
-        <input type="email" class="input form__email" placeholder="Email адрес">
+        <input type="text" name="userName" class="input form__name _req form__input" placeholder="Имя">
+        <input type="tel" name="userPhoneNumber" class="input form__phone _req form__input" placeholder="Номер телефона">
+        <input type="email" name="userEmail" class="input form__email _req _email form__input" placeholder="Email адрес">
         <p class="form__product_name">Название товара:</p>
-        <h3 class="form__productName"></h3>
-        <button class="form__submitBtn">отправить</button>
+        <h3 class="form__productName" name="productName"></h3>
+        <button type="submit" class="form__submitBtn">отправить</button>
     </form>
 </div>
 

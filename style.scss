@@ -87,13 +87,16 @@ body {
   align-items: center;
   background: rgba(#000000, .3);
 
+
   &-active {
     display: flex;
   }
   &__body {
+    width: 300px;
     display: flex;
     flex-direction: column;
-    padding: 10px 50px;
+    padding: 10px 20px;
+    position: relative;
     background: #ffffff;
   }
   & .input {
@@ -121,10 +124,10 @@ body {
   }
   &__productName {
     max-width: 180px;
-    margin: 0 auto;
     font-size: 12px;
     font-weight: 600;
     line-height: 20px;
+    text-align: left;
   }
   &__submitBtn {
     padding: 10px;
@@ -138,6 +141,19 @@ body {
     color: white;
     &:hover {
       background: darken(red, 10%);
+    }
+  }
+  &__input {
+    border-radius: 10px;
+  }
+  &__input._error {
+    box-shadow: 0 0 15px red;
+  }
+  &__clearBtn {
+    background: #cccccc;
+    color: black;
+    &:hover {
+      background: darken(#cccccc, 10%);
     }
   }
 }

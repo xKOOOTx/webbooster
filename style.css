@@ -90,9 +90,11 @@ body {
   display: flex;
 }
 .form__body {
+  width: 300px;
   display: flex;
   flex-direction: column;
-  padding: 10px 50px;
+  padding: 10px 20px;
+  position: relative;
   background: #ffffff;
 }
 .form .input {
@@ -118,10 +120,10 @@ body {
 }
 .form__productName {
   max-width: 180px;
-  margin: 0 auto;
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;
+  text-align: left;
 }
 .form__submitBtn {
   padding: 10px;
@@ -136,6 +138,19 @@ body {
 }
 .form__submitBtn:hover {
   background: #cc0000;
+}
+.form__input {
+  border-radius: 10px;
+}
+.form__input._error {
+  box-shadow: 0 0 15px red;
+}
+.form__clearBtn {
+  background: #cccccc;
+  color: black;
+}
+.form__clearBtn:hover {
+  background: #b3b3b3;
 }
 
 /*# sourceMappingURL=style.css.map */
