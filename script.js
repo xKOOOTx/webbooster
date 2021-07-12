@@ -21,11 +21,9 @@ form.addEventListener('click', el => {
     if (el.target.classList.contains('form-active')) {
         form.classList.remove('form-active')
     }
-})
-
-//  close from button
-closeForm.addEventListener('click', () => {
-    form.classList.remove('form-active')
+    if (el.target.classList.contains('form__closeBtn')) {
+        form.classList.remove('form-active')
+    }
 })
 
 //  close form button animation

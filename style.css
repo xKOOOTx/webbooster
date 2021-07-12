@@ -6,6 +6,7 @@
 
 body {
   position: relative;
+  font-family: "Montserrat SemiBold";
 }
 
 a {
@@ -19,6 +20,7 @@ a, button, img, input {
 button, input {
   outline: none;
   border: none;
+  font-family: inherit;
 }
 
 button {
@@ -47,7 +49,6 @@ body {
 .product {
   max-width: 150px;
   width: 100%;
-  font-family: "Roboto Condensed";
   text-align: center;
 }
 .product__img {
@@ -57,7 +58,7 @@ body {
 }
 .product__name {
   margin: 10px auto;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 400;
   line-height: 15px;
   color: black;
@@ -99,21 +100,42 @@ body {
   border: 1px solid #cccccc;
   padding: 10px;
 }
-.form__closeBtn {
+.form__close {
   margin: 10px 0 40px;
   background: #ffffff;
   text-align: right;
   font-size: 24px;
   font-weight: 600;
+  cursor: pointer;
+}
+.form__product_name {
+  max-width: 180px;
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.4);
+  text-align: left;
 }
 .form__productName {
   max-width: 180px;
   margin: 0 auto;
-  font-family: "Roboto Condensed";
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 20px;
-  text-align: center;
+}
+.form__submitBtn {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  background: red;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: white;
+}
+.form__submitBtn:hover {
+  background: #cc0000;
 }
 
 /*# sourceMappingURL=style.css.map */
