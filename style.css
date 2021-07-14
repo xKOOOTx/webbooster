@@ -97,13 +97,29 @@ body {
   position: relative;
   background: #ffffff;
 }
+.form__body:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7) url("./Radio-1s-200px.gif") center/50px no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s all ease-in-out;
+}
+.form__body._sending:after {
+  opacity: 1;
+  visibility: visible;
+}
 .form .input {
   margin: 10px 0;
   border: 1px solid #cccccc;
   padding: 10px;
 }
 .form__close {
-  margin: 10px 0 40px;
+  padding: 20px;
   background: #ffffff;
   text-align: right;
   font-size: 24px;
@@ -144,13 +160,6 @@ body {
 }
 .form__input._error {
   box-shadow: 0 0 15px red;
-}
-.form__clearBtn {
-  background: #cccccc;
-  color: black;
-}
-.form__clearBtn:hover {
-  background: #b3b3b3;
 }
 
 /*# sourceMappingURL=style.css.map */
