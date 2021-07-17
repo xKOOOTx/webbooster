@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +8,8 @@
 
 body {
   position: relative;
-  font-family: "Montserrat SemiBold";
-
+  font-family: "Roboto Condensed";
+  font-size: 100%;
 }
 
 a {
@@ -30,15 +32,60 @@ button {
 
 li {
   list-style: none;
+  margin: 10px 0;
+}
+p, ul, ol {
+  margin: 20px 0;
+}
+h1 {
+  font-size: 24px;
+  font-weight: 800;
 }
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+h3 {
+  font-size: 18px;
+  font-weight: 600;
 }
-.wrapper {
+
+p, li {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tasks {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  &__element {
+    cursor: pointer;
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #000000;
+    }
+    &:hover {
+      &:after {
+        width: 100%;
+        animation: tasksUnderlineToMax .3s ease-in-out;
+
+      }
+    }
+    &-active {
+      color: #cccccc;
+      &:after {
+        width: 100%;
+        background: #cccccc;
+      }
+    }
+  }
+}
+
+.ulWrapper {
   max-width: 1200px;
   width: 100%;
   display: flex;
@@ -58,7 +105,7 @@ body {
   }
   &__name {
     margin: 10px auto;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 15px;
     color: black;
@@ -78,66 +125,188 @@ body {
   }
 }
 
-.form {
+//  form
+.wrapper {
   position: absolute;
+  top: 0;
+  left: 0;
   display: none;
-  width: 100%;
-  height: 100vh;
   justify-content: center;
   align-items: center;
-  background: rgba(#000000, .3);
-
+  height: 100vh;
+  width: 100vw;
+  background: rgba(#000000, .7);
   &-active {
     display: flex;
   }
-  &__body {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 50px;
-    background: #ffffff;
-  }
-  & .input {
-    margin: 10px 0;
-    border: 1px solid #cccccc;
-    padding: 10px;
-  }
-  &__close {
-    margin: 10px 0 40px;
-    background: #ffffff;
-    text-align: right;
-    font-size: 24px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  &__product {
-    &_name {
-      max-width: 180px;
-      font-size: 10px;
-      font-weight: 300;
-      line-height: 20px;
-      color: rgba(#000000, .4);
-      text-align: left;
-    }
-  }
-  &__productName {
-    max-width: 180px;
-    margin: 0 auto;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 20px;
-  }
-  &__submitBtn {
-    padding: 10px;
-    margin: 10px 0;
+}
+
+.formWrapper {
+  width: 500px;
+  padding: 50px;
+  border-radius: 10px;
+  background: #e5e5e5;
+}
+
+.form {
+  position: relative;
+  &__input {
+    display: block;
     width: 100%;
-    background: red;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: white;
-    &:hover {
-      background: darken(red, 10%);
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    outline: none;
+    color: black;
+    font-size: 16px;
+    &::placeholder {
+      color: #cccccc;
     }
+    &:focus {
+      border-color: #000000;
+      box-shadow: 0 0 10px 1px rgb(0 0 0 / .5);
+    }
+    &_submitBtn {
+      cursor: pointer;
+      transition: background-color .3s ease-in-out;
+      &:hover {
+        background: darken(#cccccc, 1%);
+      }
+      &:focus {
+        border-color: #cccccc;
+        box-shadow: none;
+      }
+    }
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: rgba(#ffffff, .5) url("./Ripple-1s-200px.gif") center / 200px no-repeat;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s opacity ease-in-out, .3s visibility ease-in-out;
+  }
+  &._sending:after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.closeBtn {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
+
+}
+
+.item_name {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: default;
+}
+
+.form__input._error {
+  border-color: red;
+  box-shadow: 0 0 10px 1px rgba(red, .7);
+  color: red;
+  &::placeholder {
+    color: red;
+  }
+}
+
+
+//  second task
+.secondTask {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  &__header {
+    margin: 50px 0;
+    text-align: center;
+  }
+  &__subHeader {
+    margin: 0 0 30px 0;
+  }
+  &__imgWide {
+    width: 100%;
+  }
+}
+
+.placeholderBlock {
+  display: flex;
+  background: #F6E049;
+  &__img {
+    height: 300px;
+  }
+  &__text {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+  }
+}
+
+.numberedList {
+  margin-left: 20px;
+ &__element {
+   list-style: auto;
+ }
+}
+
+.nonNumericList {
+  margin-left: 20px;
+  &__element {
+    list-style: disc;
+  }
+}
+
+.importantText {
+  margin: 100px 0;
+  font-weight: 400;
+}
+
+@media (max-width: 800px) {
+  .secondTask {
+    padding: 0 20px;
+  }
+  .ulWrapper {
+    overflow-x: scroll;
+    & li:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  .placeholderBlock {
+    &__img {
+      height: 100px;
+    }
+    &__text {
+      font-size: 20px;
+    }
+  }
+}
+
+//  animation
+@keyframes tasksUnderlineToMax {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }

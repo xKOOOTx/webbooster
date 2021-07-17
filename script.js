@@ -1,7 +1,9 @@
+const body = document.body;
 const productSection = document.querySelectorAll('.product');
 const closeForm = document.querySelector('.fa-times');
-const form = document.querySelector('.form');
-const formProductName = document.querySelector('.form__productName')
+const productsWrapper = document.querySelector('.ulWrapper');
+const formWrapper = document.querySelector('.wrapper');
+const formProductName = document.querySelector('.item_name');
 
 
 productSection.forEach(el => {
@@ -10,19 +12,24 @@ productSection.forEach(el => {
 
 
     productButton.addEventListener('click', () => {
-        form.classList.add('form-active');
-        formProductName.textContent = '';
-        formProductName.innerHTML = productName.innerHTML;
+        const windowHeight = window.pageYOffset;
+        formWrapper.classList.add('wrapper-active');
+        formProductName.value = productName.innerHTML;
+        formWrapper.style.top = `${windowHeight - 50}px`;
+        body.style.overflow = 'hidden';
     })
 })
 
 //  closing form by clicking outside
-form.addEventListener('click', el => {
-    if (el.target.classList.contains('form-active')) {
-        form.classList.remove('form-active')
+formWrapper.addEventListener('click', el => {
+    if (el.target.classList.contains('wrapper-active')) {
+        formWrapper.classList.remove('wrapper-active');
+        body.style.overflow = 'auto';
     }
-    if (el.target.classList.contains('form__closeBtn')) {
-        form.classList.remove('form-active')
+    if (el.target.classList.contains('closeBtn__button')) {
+        formWrapper.classList.remove('wrapper-active');
+        formWrapper.style.top = `${window.pageYOffset}`;
+        body.style.overflow = 'auto';
     }
 })
 
@@ -34,7 +41,7 @@ closeForm.addEventListener('mouseout', () => {
         duration: 200,
         iterations: 2
     })
-})
+});
 closeForm.addEventListener('mouseenter', () => {
     closeForm.animate([
         {transform: 'rotate(90deg)'}
@@ -42,4 +49,7 @@ closeForm.addEventListener('mouseenter', () => {
         duration: 200,
         iterations: 2
     })
-})
+});
+
+
+
